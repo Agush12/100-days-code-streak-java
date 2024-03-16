@@ -1,30 +1,32 @@
-import java.util.*;
-public class sqrt{
-    static int sq(int n){
-        int low=1,high=n,ans=-1;
-        while(low<=high){
-            int mid=(low+high)/2;
-            int square=mid*mid;
-            if(square==n){
-                return mid;
-            }
-            else if(square>n){
-                high=mid-1;
+class sqrt {
 
-            }
-            else{
-                ans=mid;
-                low=mid+1;
+    public static void main(String[] args) {
+        int x = 16; 
+     
+        int result = mySqrt(x);
+        System.out.println("Square root of " + x + " is: " + result);
+    
+}
 
-            }
-        }return ans;
 
+    static int mySqrt(int x) {
+        long low = 0, high = x;
+        long sol = 0;
+
+        while (low <= high) {
+            long mid = (low + high) / 2;
+
+            long sq = mid * mid;
+            if (sq == x) {
+                return (int) mid;
+            }
+            if (sq < x) {
+                sol = mid;
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+        return (int) sol;
     }
-
-public static void main(String args[])
-{Scanner sc = new Scanner(System.in);
-    System.out.println(sq(15));
-    System.out.println(sq(16));
-    System.out.println(sq(10));
-
-}}
+}
